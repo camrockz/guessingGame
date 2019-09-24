@@ -1,7 +1,0 @@
-/home/cam/projects/guessingGame/build/CMakeFiles/install/strip.dir
-/home/cam/projects/guessingGame/build/CMakeFiles/install/local.dir
-/home/cam/projects/guessingGame/build/CMakeFiles/edit_cache.dir
-/home/cam/projects/guessingGame/build/CMakeFiles/guessinggame.dir
-/home/cam/projects/guessingGame/build/CMakeFiles/rebuild_cache.dir
-/home/cam/projects/guessingGame/build/CMakeFiles/install.dir
-/home/cam/projects/guessingGame/build/CMakeFiles/list_install_components.dir

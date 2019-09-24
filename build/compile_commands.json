@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/cam/projects/guessingGame/build",
-  "command": "/usr/bin/cc   -g   -o CMakeFiles/guessinggame.dir/main.c.o   -c /home/cam/projects/guessingGame/main.c",
-  "file": "/home/cam/projects/guessingGame/main.c"
-}
-]

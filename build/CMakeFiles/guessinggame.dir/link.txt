@@ -1,1 +1,0 @@
-/usr/bin/cc -g  -rdynamic CMakeFiles/guessinggame.dir/main.c.o  -o guessinggame -lm 
