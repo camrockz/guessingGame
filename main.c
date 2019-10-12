@@ -8,6 +8,34 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
+#include <errno.h>
+
+int get_int()
+{
+    char buffer[10];
+    char *endp;
+    errno = 0;
+    fgets(buffer , sizeof(buffer) , stdin);
+    int ret_int = strtol(buffer , &endp , 10);
+    
+    if (*endp != '\n')
+    {
+        fprintf(stderr , "Invalid input\n");
+        exit(EXIT_FAILURE);
+    }
+    
+    if (errno != 0 && ret_int == 0)
+    {
+        perror("strtol");
+        exit(EXIT_FAILURE);
+    }
+    if (endp == (char*)&buffer)
+    {
+        fprintf(stderr , "There were no numbers found");
+        exit(EXIT_FAILURE);
+    }
+    return ret_int;
+}
 
 int genNumber(int *v)
 {
@@ -28,42 +56,33 @@ void clearbuff()
 
 int main()
 {
-    char cMaxChars[5];
     int maxChars;
     double base = 10;
     int maxValue;
-    char guess [10];
-    int iguess;
+    int guess;
     
     printf("Choose the max number of digits in the secret number: ");
-    fgets(cMaxChars , sizeof(cMaxChars) , stdin);
-    //clearbuff();
-    maxChars = atoi(cMaxChars);
+    maxChars = get_int();
     maxValue = pow(base , maxChars - 1);
     int magicNum = genNumber(&maxValue);
     // For testing printf("%d\n" , magicNum);
-    while (iguess != magicNum)
+    while (guess != magicNum)
     {   
         printf("Guess a number between 0 and %i: " , maxValue);
-        fgets(guess , sizeof(guess) , stdin);
-        iguess = atoi(guess);
+        guess = get_int();
         //printf("%d" , iguess);
-        if (iguess < magicNum)
+        if (guess < magicNum)
         {
             printf("That's too low! Try again! ");
         }
-        if (iguess > magicNum)
+        if (guess > magicNum)
         {
             printf("That's too high! Try again! ");
         }
-        if (iguess == magicNum)
+        if (guess == magicNum)
         {
             printf("You guessed the correct number!");
         }
-        
     }
-    
-    
-    
     return 0;
 }
